@@ -5,9 +5,7 @@ public class GManager : MonoBehaviour
 {
     public static GManager instance = null;
 
-    public int TVPara = 0;
-
-    
+    public int score = 0;
     private void Awake()
     {
         if (instance == null)
@@ -19,5 +17,10 @@ public class GManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    void Update()
+    {
+
     }
 }
