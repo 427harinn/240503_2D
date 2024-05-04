@@ -17,41 +17,63 @@ public class SaboChanScript : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag != "Ground")
+        {
+            collision.gameObject.tag = "FinishTag";
+            collision.gameObject.transform.parent.gameObject.tag = "FinishTag";
+        }
+
+        
+
+        var rb2 = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<Rigidbody2D>();
+        Destroy(rb2);
+        Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<NormalSaboRotationScript>());
+
         SaboMaster.instance.sabofalled = true;
         var rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-        if(collision.gameObject.tag == "Ground")
+        //var rb2 = gameObject.transform.parent.gameObject.GetComponent<Rigidbody2D>();
+        //Destroy(rb2);
+        //Destroy(gameObject.transform.parent.gameObject.GetComponent<NormalSaboRotationScript>());
+
+
+        if (collision.gameObject.tag == "Ground")
         {
             SaboMaster.instance.sabomissed = true;
             this.gameObject.GetComponent<PolygonCollider2D>().enabled = false ;
-        } 
+        }
+
+        if (SaboMaster.instance.saboList.Count > 1)
+        {
+            Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 2].GetComponent<PolygonCollider2D>());
+        }
         //else
         //{
-            //軽量化しましょう
-            /*if (SaboMaster.instance.saboList.Count > 1)
-            {
-                Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 2].GetComponent<PolygonCollider2D>());
-            }*/
-            // リスト内のすべてのゲームオブジェクトを探索
-            // リストに要素があるかを確認
-            //if (SaboMaster.instance.saboList == null || SaboMaster.instance.saboList.Count == 0) return;
+        //軽量化しましょう
+        /*if (SaboMaster.instance.saboList.Count > 1)
+        {
+            Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 2].GetComponent<PolygonCollider2D>());
+        }*/
+        // リスト内のすべてのゲームオブジェクトを探索
+        // リストに要素があるかを確認
+        //if (SaboMaster.instance.saboList == null || SaboMaster.instance.saboList.Count == 0) return;
 
-            // リストの最後の要素のインデックスを取得
-            //int lastIndex = SaboMaster.instance.saboList.Count - 1;
+        // リストの最後の要素のインデックスを取得
+        //int lastIndex = SaboMaster.instance.saboList.Count - 1;
 
-            // 最後の要素を除外してリストを探索
-            //for (int i = 0; i < lastIndex; i++)
-            //{
-                //GameObject obj = SaboMaster.instance.saboList[i]; // リスト内のゲームオブジェクト
-                //PolygonCollider2D collider = obj.GetComponent<PolygonCollider2D>(); // Colliderを取得
+        // 最後の要素を除外してリストを探索
+        //for (int i = 0; i < lastIndex; i++)
+        //{
+        //GameObject obj = SaboMaster.instance.saboList[i]; // リスト内のゲームオブジェクト
+        //PolygonCollider2D collider = obj.GetComponent<PolygonCollider2D>(); // Colliderを取得
 
-                ///if (collider != null)
-                //{
-                    //Destroy(collider); // Colliderを削除
-                //}
-            //}
-       // }
-        
+        ///if (collider != null)
+        //{
+        //Destroy(collider); // Colliderを削除
+        //}
+        //}
+        // }
+
     }
 }

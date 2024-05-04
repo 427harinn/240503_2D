@@ -20,9 +20,14 @@ public class FallScript : MonoBehaviour
 
     public void onClicked_fall()
     {
-        SaboMaster.instance.prevY = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].transform.localPosition.y;
+        //SaboMaster.instance.prevY = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.transform.localPosition.y;
         //Rigidbody2D‚ðŽæ“¾
-        rb = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].GetComponent<Rigidbody2D>();
+        rb = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 1;
+
+        //SaboMaster.instance.prevY = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].transform.GetChild(0).gameObject.transform.localPosition.y;
+        //Rigidbody2D‚ðŽæ“¾
+        rb = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].transform.GetChild(0).gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 1;
     }
 }

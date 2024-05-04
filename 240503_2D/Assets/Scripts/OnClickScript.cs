@@ -22,7 +22,7 @@ public class OnClickScript : MonoBehaviour
 
     public void onClicked_LoadSceneButton()
     {
-        SceneManager.LoadScene(nextScene);
+        Invoke("loadscene",1.0f);
     }
 
     public void onClicked_PanelActiveButton()
@@ -33,5 +33,10 @@ public class OnClickScript : MonoBehaviour
     public void onClicked_PanelCloseButton()
     {
         closePanel.SetActive(false);
+    }
+
+    public void loadscene()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }
