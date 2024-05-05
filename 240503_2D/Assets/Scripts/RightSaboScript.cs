@@ -32,7 +32,7 @@ public class RightSaboScript : MonoBehaviour
         // À•W‚ðŽæ“¾
         Vector3 pos = myTransform.position;
         pos.x += 0.5f;    // xÀ•W‚Ö0.01‰ÁŽZ
-        pos.y = iniY;
+        ///pos.y = iniY;
         if (pos.x > 2.3)
         {
             pos.x = 2.3f;

@@ -22,7 +22,8 @@ public class FinishScript : MonoBehaviour
         if (other.gameObject.tag == "FinishTag")//各自タグに付けた名前を()の中に入れてください
         {
             finishcanva.SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
+            Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject);
         }
     }
 }
