@@ -28,9 +28,23 @@ public class SaboChanScript : MonoBehaviour
             this.gameObject.transform.parent.gameObject.tag = "FinishTag";
         }
 
-        var rb2 = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<Rigidbody2D>();
+        /*var rb2 = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<Rigidbody2D>();
         Destroy(rb2);
-        Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<NormalSaboRotationScript>());
+        Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<NormalSaboRotationScript>());*/
+
+        if(collision.gameObject.tag == "FinishTag" || collision.gameObject.tag == "Ground")
+        {
+            
+            var rb2 = this.gameObject.transform.parent.gameObject.GetComponent<Rigidbody2D>();
+            if(rb2) {
+                GManager.instance.score++;
+                SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
+                Destroy(rb2);
+                Destroy(this.gameObject.transform.parent.gameObject.GetComponent<NormalSaboRotationScript>());
+            }
+
+        }
+
 
         SaboMaster.instance.sabofalled = true;
         var rb = GetComponent<Rigidbody2D>();

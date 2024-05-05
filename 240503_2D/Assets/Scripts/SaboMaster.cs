@@ -43,10 +43,10 @@ public class SaboMaster : MonoBehaviour
                 GManager.instance.score -= 2;
                 sabomissed = false;
             }
-            saboList[saboList.Count - 1].transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
+            //saboList[saboList.Count - 1].transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(puyo);
             SaboGenerate();
-            GManager.instance.score++;
+            //GManager.instance.score++;
             sabofalled = false;
         }
     }
