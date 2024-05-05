@@ -6,6 +6,7 @@ public class FallScript : MonoBehaviour
 {
     //•Ï”‚ğì‚é
     Rigidbody2D rb;
+    [SerializeField] GameObject buttonstopImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class FallScript : MonoBehaviour
 
     public void onClicked_fall()
     {
+        buttonstopImage.SetActive(true);
         //SaboMaster.instance.prevY = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.transform.localPosition.y;
         //Rigidbody2D‚ğæ“¾
         rb = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<Rigidbody2D>();

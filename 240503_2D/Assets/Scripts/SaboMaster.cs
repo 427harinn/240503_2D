@@ -9,6 +9,7 @@ public class SaboMaster : MonoBehaviour
     [SerializeField] AudioClip puyo;
     [SerializeField] List<GameObject> originsabolist;
     [SerializeField] Sprite naesabo;
+    [SerializeField] GameObject buttonstopImage;
 
     public bool sabofalled = false;
     public bool sabomissed = false;
@@ -55,7 +56,7 @@ public class SaboMaster : MonoBehaviour
 
     public void SaboGenerate()
     {
-
+        buttonstopImage.SetActive(false);
         var children = new Transform[parent.transform.childCount];
         var childIndex = 0;
 
