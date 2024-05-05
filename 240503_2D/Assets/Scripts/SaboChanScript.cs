@@ -23,7 +23,10 @@ public class SaboChanScript : MonoBehaviour
             collision.gameObject.transform.parent.gameObject.tag = "FinishTag";
         }
 
-        
+        if (collision.gameObject.tag != null)
+        {
+            this.gameObject.transform.parent.gameObject.tag = "FinishTag";
+        }
 
         var rb2 = SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject.GetComponent<Rigidbody2D>();
         Destroy(rb2);
@@ -43,6 +46,8 @@ public class SaboChanScript : MonoBehaviour
             SaboMaster.instance.sabomissed = true;
             this.gameObject.GetComponent<PolygonCollider2D>().enabled = false ;
         }
+
+
 
         if (SaboMaster.instance.saboList.Count > 1)
         {
