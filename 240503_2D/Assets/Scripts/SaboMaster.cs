@@ -40,7 +40,7 @@ public class SaboMaster : MonoBehaviour
             if (sabomissed)
             {
                 saboList[saboList.Count - 1].transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = naesabo;
-                GManager.instance.score--;
+                GManager.instance.score -= 2;
                 sabomissed = false;
             }
             saboList[saboList.Count - 1].transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
