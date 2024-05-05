@@ -56,7 +56,7 @@ public class SaboMaster : MonoBehaviour
     public void SaboGenerate()
     {
 
-       /* var children = new Transform[parent.transform.childCount];
+        var children = new Transform[parent.transform.childCount];
         var childIndex = 0;
 
         int count = 0;
@@ -74,8 +74,8 @@ public class SaboMaster : MonoBehaviour
         }
 
         //Debug.Log(count + " " + (parent.transform.childCount));*/
-        //if(count == (parent.transform.childCount))
-        //{
+        if(count == (parent.transform.childCount))
+        {
             GameObject obj = Instantiate(
             originsabolist[Random.Range(0, originsabolist.Count)],
             new Vector3(-16.5f, 359.4f, -0.0008180315f),
@@ -84,7 +84,7 @@ public class SaboMaster : MonoBehaviour
             obj.transform.SetParent(parent.transform, false);
 
             saboList.Add(obj);
-       // }
+        }
         
 
     }
