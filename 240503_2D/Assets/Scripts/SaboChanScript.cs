@@ -55,8 +55,9 @@ public class SaboChanScript : MonoBehaviour
         //Destroy(gameObject.transform.parent.gameObject.GetComponent<NormalSaboRotationScript>());
 
 
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" && this.gameObject.tag != "FinishTag")
         {
+            this.gameObject.transform.parent.name = "naesabo";
             SaboMaster.instance.sabomissed = true;
             this.gameObject.GetComponent<PolygonCollider2D>().enabled = false ;
         }

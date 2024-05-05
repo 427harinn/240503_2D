@@ -77,7 +77,8 @@ public class SaboMaster : MonoBehaviour
         //Debug.Log(count + " " + (parent.transform.childCount));*/
         if(count == (parent.transform.childCount))
         {
-            GameObject obj = Instantiate(
+            
+           GameObject obj = Instantiate(
             originsabolist[Random.Range(0, originsabolist.Count)],
             new Vector3(-16.5f, 359.4f, -0.0008180315f),
             Quaternion.identity
