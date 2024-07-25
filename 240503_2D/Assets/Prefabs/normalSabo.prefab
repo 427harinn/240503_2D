@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 3677103897871341512}
   - component: {fileID: 3677103897871341515}
   m_Layer: 5
-  m_Name: normalsabo
+  m_Name: normalSabo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -22,10 +22,12 @@ public class FinishScript : MonoBehaviour
         //Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "FinishTag")//各自タグに付けた名前を()の中に入れてください
         {
+            GManager.instance.finishflag = true;
+            Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject);
             finishcanva.SetActive(true);
             UnityroomApiClient.Instance.SendScore(1, GManager.instance.score, ScoreboardWriteMode.Always);
             //Time.timeScale = 0;
-            Destroy(SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].gameObject);
+            
         }
     }
 }

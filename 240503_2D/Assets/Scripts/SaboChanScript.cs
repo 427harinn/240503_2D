@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SaboChanScript : MonoBehaviour
 {
+    bool hit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class SaboChanScript : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+
         if(collision.gameObject.tag != "Ground")
         {
             collision.gameObject.tag = "FinishTag";
@@ -37,10 +39,14 @@ public class SaboChanScript : MonoBehaviour
             
             var rb2 = this.gameObject.transform.parent.gameObject.GetComponent<Rigidbody2D>();
             if(rb2) {
-                GManager.instance.score++;
-                SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
-                Destroy(rb2);
-                Destroy(this.gameObject.transform.parent.gameObject.GetComponent<NormalSaboRotationScript>());
+                if(GManager.instance.finishflag == false)
+                {
+                    GManager.instance.score++;
+                    SaboMaster.instance.saboList[SaboMaster.instance.saboList.Count - 1].transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
+                    Destroy(rb2);
+                    Destroy(this.gameObject.transform.parent.gameObject.GetComponent<NormalSaboRotationScript>());
+                }
+
             }
 
         }

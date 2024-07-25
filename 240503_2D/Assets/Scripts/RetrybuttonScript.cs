@@ -20,6 +20,7 @@ public class RetrybuttonScript : MonoBehaviour
     public void onClicked_loadscene()
     {
         GManager.instance.score = 0;
+        GManager.instance.finishflag = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }

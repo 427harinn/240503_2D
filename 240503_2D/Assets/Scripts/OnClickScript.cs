@@ -38,5 +38,6 @@ public class OnClickScript : MonoBehaviour
     public void loadscene()
     {
         SceneManager.LoadScene(nextScene);
+        
     }
 }
